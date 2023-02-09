@@ -5,10 +5,19 @@
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "postinstall": "nuxt prepare",
+    "emulate": "npx firebase emulators:start",
+    "deploy": "npx firebase deploy"
   },
   "devDependencies": {
     "@nuxt/webpack-builder": "^3.1.2",
+    "firebase-admin": "^11.5.0",
+    "firebase-functions": "^4.2.1",
+    "firebase-functions-test": "^3.0.0",
+    "firebase-tools": "^11.22.0",
     "nuxt": "^3.1.2"
+  },
+  "dependencies": {
+    "firebase": "^9.17.1"
   }
 }
