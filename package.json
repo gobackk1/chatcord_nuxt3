@@ -10,7 +10,8 @@
     "deploy": "npx firebase deploy",
     "lint": "npx eslint --ext .ts,.vue . && npx stylelint **/*.{css,scss,vue}",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "test": "npx jest"
   },
   "devDependencies": {
     "@babel/core": "^7.20.12",
@@ -24,9 +25,12 @@
     "@storybook/builder-vite": "^0.4.0",
     "@storybook/testing-library": "^0.0.13",
     "@storybook/vue3": "^6.5.16",
+    "@types/jest": "^29.4.0",
     "@types/prettier": "^2.7.2",
     "@typescript-eslint/eslint-plugin": "^5.0.0",
     "@vue/eslint-config-prettier": "^7.0.0",
+    "@vue/test-utils": "^2.2.10",
+    "@vue/vue3-jest": "28",
     "babel-loader": "^8.3.0",
     "eslint": "^8.0.1",
     "eslint-config-prettier": "^8.6.0",
@@ -40,6 +44,8 @@
     "firebase-functions": "^4.2.1",
     "firebase-functions-test": "^3.0.0",
     "firebase-tools": "^11.22.0",
+    "jest": "^29.4.2",
+    "jest-environment-jsdom": "^29.4.2",
     "nuxt": "^3.1.2",
     "postcss-html": "^1.5.0",
     "postcss-scss": "^4.0.6",
@@ -48,6 +54,7 @@
     "stylelint": "^15.0.0",
     "stylelint-config-prettier": "^9.0.4",
     "stylelint-config-recommended-vue": "^1.4.0",
+    "ts-jest": "^29.0.5",
     "typescript": "*",
     "vite-plugin-vuetify": "^1.0.2",
     "vue-loader": "^16.8.3"
