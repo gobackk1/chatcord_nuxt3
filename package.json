@@ -8,7 +8,7 @@
     "postinstall": "nuxt prepare",
     "emulate": "npx firebase emulators:start",
     "deploy": "npx firebase deploy",
-    "lint": "npx eslint ."
+    "lint": "npx eslint --ext .ts,.vue . && npx stylelint **/*.{css,scss,vue}"
   },
   "devDependencies": {
     "@nuxt/eslint-config": "^0.1.1",
@@ -30,8 +30,13 @@
     "firebase-functions-test": "^3.0.0",
     "firebase-tools": "^11.22.0",
     "nuxt": "^3.1.2",
+    "postcss-html": "^1.5.0",
+    "postcss-scss": "^4.0.6",
     "prettier": "^2.8.4",
     "sass": "^1.58.0",
+    "stylelint": "^15.0.0",
+    "stylelint-config-prettier": "^9.0.4",
+    "stylelint-config-recommended-vue": "^1.4.0",
     "typescript": "*",
     "vite-plugin-vuetify": "^1.0.2"
   },
