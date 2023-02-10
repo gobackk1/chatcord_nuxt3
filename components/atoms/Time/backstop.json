@@ -1,0 +1,14 @@
+{
+  "scenarios": [
+    {
+      "label": "Default",
+      "url": "http://localhost:6006/iframe.html?args=&id=atoms-cctime--default&viewMode=story",
+      "misMatchThreshold" : 0.1
+    },
+    {
+      "label": "WithFormat",
+      "url": "http://localhost:6006/iframe.html?args=&id=atoms-cctime--with-format&viewMode=story",
+      "misMatchThreshold" : 0.1
+    }
+  ]
+}
