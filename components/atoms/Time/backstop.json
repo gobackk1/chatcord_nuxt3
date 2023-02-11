@@ -2,12 +2,17 @@
   "scenarios": [
     {
       "label": "Default",
-      "url": "http://localhost:6006/iframe.html?args=&id=atoms-cctime--default&viewMode=story",
+      "url": "http://localhost:6006/iframe.html?args=&id=atoms-time--default&viewMode=story",
       "misMatchThreshold" : 0.1
     },
     {
       "label": "WithFormat",
-      "url": "http://localhost:6006/iframe.html?args=&id=atoms-cctime--with-format&viewMode=story",
+      "url": "http://localhost:6006/iframe.html?args=&id=atoms-time--with-format&viewMode=story",
+      "misMatchThreshold" : 0.1
+    },
+    {
+      "label": "WithValidationError",
+      "url": "http://localhost:6006/iframe.html?args=&id=atoms-time--with-validation-error&viewMode=story",
       "misMatchThreshold" : 0.1
     }
   ]

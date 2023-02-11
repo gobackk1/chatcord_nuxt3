@@ -11,7 +11,11 @@
     "lint": "npx eslint --ext .ts,.vue . && npx stylelint **/*.{css,scss,vue}",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "test": "npx jest"
+    "test": "npx jest",
+    "backstop:init": "node ./test/backstop/init.js",
+    "backstop:reference": "node ./test/backstop/reference.js",
+    "backstop:test": "node ./test/backstop/test.js",
+    "backstop:approve": "node ./test/backstop/approve.js"
   },
   "devDependencies": {
     "@babel/core": "^7.20.12",
@@ -32,6 +36,7 @@
     "@vue/test-utils": "^2.2.10",
     "@vue/vue3-jest": "28",
     "babel-loader": "^8.3.0",
+    "backstopjs": "^6.1.4",
     "eslint": "^8.0.1",
     "eslint-config-prettier": "^8.6.0",
     "eslint-config-standard-with-typescript": "^34.0.0",

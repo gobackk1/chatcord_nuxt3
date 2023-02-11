@@ -8,3 +8,4 @@ node_modules
 dist
 .firebase
 .coverage
+backstop_data

@@ -15,7 +15,9 @@ module.exports = {
     builder: '@storybook/builder-vite',
   },
   features: {
-    storyStoreV7: true,
+    // NOTE: trueにするとUIコンポーネントのレンダリングに時間がかかるようになる。
+    // 画像回帰テストのscenario.delayを3000msぐらいに設定する必要がある。
+    // storyStoreV7: true,
   },
   viteFinal: (config) => {
     config.resolve.alias['~'] = path.resolve(__dirname, '..', 'components')
