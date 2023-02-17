@@ -3,19 +3,22 @@ import vuetify from 'vite-plugin-vuetify'
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   ssr: false,
+  imports: {
+    dirs: ['composables/firebase/', 'composables'],
+  },
   components: [
     {
       path: './components/atoms/',
       prefix: 'atom',
     },
-    // {
-    //   path: './components/molecules/',
-    //   prefix: 'mol',
-    // },
-    // {
-    //   path: './components/organisms/',
-    //   prefix: 'org',
-    // },
+    {
+      path: './components/molecules/',
+      prefix: 'mol',
+    },
+    {
+      path: './components/organisms/',
+      prefix: 'org',
+    },
   ],
   css: ['mdi/css/materialdesignicons.min.css'],
   typescript: {
@@ -24,7 +27,6 @@ export default defineNuxtConfig({
   modules: [
     async (options, nuxt) => {
       nuxt.hooks.hook('vite:extendConfig', (config) => {
-        // console.log(config.resolve?.alias)
         config.plugins?.push(vuetify())
       })
     },
