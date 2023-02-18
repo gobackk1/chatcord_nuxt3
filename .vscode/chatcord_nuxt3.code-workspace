@@ -9,11 +9,11 @@
     "recommendations": [
       "dbaeumer.vscode-eslint",
       "chflick.firecode",
-      "firsttris.vscode-jest-runner",
       "esbenp.prettier-vscode",
       "stylelint.vscode-stylelint",
       "vue.vscode-typescript-vue-plugin",
-      "vue.volar"
+      "vue.volar",
+      "zixuanchen.vitest-explorer"
     ]
   },
 }
