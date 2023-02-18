@@ -11,7 +11,7 @@ function assembleScenarios() {
           if (file.match(/backstop.json/)) {
             const backstopJson = require(`../../components/${dir}/${component}/${file}`)
             backstopJson.scenarios.forEach((scenario) =>
-              scenarios.push(scenario)
+              scenarios.push(renameLabel(scenario, component))
             )
           }
         }
@@ -19,6 +19,16 @@ function assembleScenarios() {
     }
   }
   return scenarios
+}
+
+/**
+ * NOTE:
+ * 各コンポーネントのbackstop.jsonのlabel名は、各stories.jsのユースケース名と同じにしてある。
+ * それぞれのリファレンス画像ファイル名が被らないように、labelにコンポーネント名のプレフィックスをつける。
+ */
+function renameLabel(scenario, prefix) {
+  scenario.label = `${prefix}_${scenario.label}`
+  return scenario
 }
 
 module.exports = assembleScenarios

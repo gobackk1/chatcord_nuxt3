@@ -1,0 +1,33 @@
+{
+  "scenarios": [
+    {
+      "label": "Default",
+      "url": "http://localhost:6006/iframe.html?args=&id=molecules-fieldemail--default&viewMode=story",
+      "misMatchThreshold" : 0.1
+    },
+    {
+      "label": "ValidEmailAddress",
+      "url": "http://localhost:6006/iframe.html?args=&id=molecules-fieldemail--valid-email-address&viewMode=story",
+      "misMatchThreshold" : 0.1,
+      "delay": 1000
+    },
+    {
+      "label": "WithEmptyValue",
+      "url": "http://localhost:6006/iframe.html?args=&id=molecules-fieldemail--with-empty-value&viewMode=story",
+      "misMatchThreshold" : 0.1,
+      "delay": 1000
+    },
+    {
+      "label": "ExceededMaxValue",
+      "url": "http://localhost:6006/iframe.html?args=&id=molecules-fieldemail--exceeded-max-length&viewMode=story",
+      "misMatchThreshold" : 0.1,
+      "delay": 1000
+    },
+    {
+      "label": "InvalidEmailAddress",
+      "url": "http://localhost:6006/iframe.html?args=&id=molecules-fieldemail--invalid-email-address&viewMode=story",
+      "misMatchThreshold" : 0.1,
+      "delay": 1000
+    }
+  ]
+}

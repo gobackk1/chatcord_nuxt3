@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[` 1`] = `"<img src="/sample.jpg">"`;
+
+exports[`UIコンポーネントのテスト Viewのテスト 回帰テスト スナップショットテスト 1`] = `"<img src="/sample.jpg">"`;

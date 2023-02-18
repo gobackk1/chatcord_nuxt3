@@ -1,7 +1,7 @@
+import type { NuxtConfig } from 'nuxt/config'
 import vuetify from 'vite-plugin-vuetify'
 
-// https://nuxt.com/docs/api/configuration/nuxt-config
-export default defineNuxtConfig({
+export const nuxtConfig: NuxtConfig = {
   ssr: false,
   imports: {
     dirs: ['composables/firebase/', 'composables'],
@@ -27,6 +27,7 @@ export default defineNuxtConfig({
   modules: [
     async (options, nuxt) => {
       nuxt.hooks.hook('vite:extendConfig', (config) => {
+        // console.log(config)
         config.plugins?.push(vuetify())
       })
     },
@@ -41,4 +42,7 @@ export default defineNuxtConfig({
       },
     },
   },
-})
+}
+
+// https://nuxt.com/docs/api/configuration/nuxt-config
+export default defineNuxtConfig(nuxtConfig)

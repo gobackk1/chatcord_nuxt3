@@ -26,7 +26,7 @@
     "@storybook/addon-essentials": "^6.5.16",
     "@storybook/addon-interactions": "^6.5.16",
     "@storybook/addon-links": "^6.5.16",
-    "@storybook/builder-vite": "^0.4.0",
+    "@storybook/builder-vite": "^0.4.2",
     "@storybook/testing-library": "^0.0.13",
     "@storybook/vue3": "^6.5.16",
     "@types/jest": "^29.4.0",
@@ -61,6 +61,8 @@
     "stylelint-config-recommended-vue": "^1.4.0",
     "ts-jest": "^29.0.5",
     "typescript": "*",
+    "unplugin-auto-import": "^0.14.3",
+    "unplugin-vue-components": "^0.24.0",
     "vite-plugin-vuetify": "^1.0.2",
     "vue-loader": "^16.8.3"
   },

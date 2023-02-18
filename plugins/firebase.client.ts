@@ -11,8 +11,9 @@ export default defineNuxtPlugin(() => {
   }
   firebase.initializeApp(firebaseConfig)
 
+  const functions = firebase.app().functions('asia-northeast1')
+
   if (window.location.hostname === 'localhost') {
-    const functions = firebase.app().functions('asia-northeast1')
     const storage = firebase.storage()
     const auth = firebase.auth()
 
