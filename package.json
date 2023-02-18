@@ -11,7 +11,7 @@
     "lint": "npx eslint --ext .ts,.vue . && npx stylelint **/*.{css,scss,vue}",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "test": "npx jest",
+    "test": "npx vitest run --coverage --config ./test/vitest/vitest.config.ts",
     "backstop:init": "node ./test/backstop/init.js",
     "backstop:reference": "node ./test/backstop/reference.js",
     "backstop:test": "node ./test/backstop/test.js",
@@ -32,6 +32,7 @@
     "@types/jest": "^29.4.0",
     "@types/prettier": "^2.7.2",
     "@typescript-eslint/eslint-plugin": "^5.0.0",
+    "@vitest/coverage-c8": "^0.28.5",
     "@vue/eslint-config-prettier": "^7.0.0",
     "@vue/test-utils": "^2.2.10",
     "@vue/vue3-jest": "28",
@@ -64,6 +65,7 @@
     "unplugin-auto-import": "^0.14.3",
     "unplugin-vue-components": "^0.24.0",
     "vite-plugin-vuetify": "^1.0.2",
+    "vitest": "^0.28.5",
     "vue-loader": "^16.8.3"
   },
   "dependencies": {
@@ -71,5 +73,6 @@
     "mdi": "^2.2.43",
     "moment": "^2.29.4",
     "vuetify": "^3.1.4"
-  }
+  },
+  "type": "module"
 }

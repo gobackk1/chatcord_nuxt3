@@ -3,7 +3,7 @@
   "extends": "./.nuxt/tsconfig.json",
   "compilerOptions": {
     "types": [
-      "jest"
+      "vitest/globals"
     ],
     "esModuleInterop": true,
     "target": "ES5", /* Set the JavaScript language version for emitted JavaScript and include compatible library declarations. */
