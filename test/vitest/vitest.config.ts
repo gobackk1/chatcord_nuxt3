@@ -34,6 +34,16 @@ export default defineConfig(async () => {
         provider: 'c8',
         reporter: ['html', 'text'],
         reportsDirectory: '.coverage',
+        all: true,
+        src: [
+          './components',
+          './composables',
+          './functions',
+          './layouts',
+          './middleware',
+          './pages',
+        ],
+        extension: ['.ts', '.vue'],
       },
       deps: {
         inline: ['vuetify'],
