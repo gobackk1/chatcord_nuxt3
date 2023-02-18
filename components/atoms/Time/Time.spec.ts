@@ -3,9 +3,10 @@ import Time from './Time.vue'
 
 describe('_Cc_Timeコンポーネントのテスト', () => {
   beforeAll(() => {
-    jest.mock('moment', () => ({
-      default: jest.requireActual('moment'),
-    }))
+    vi.mock('moment', async () => {
+      const moment = await vi.importActual('moment')
+      return moment
+    })
   })
   describe('ViewModelのテスト', () => {
     describe('ブラックボックステスト', () => {
@@ -36,7 +37,7 @@ describe('_Cc_Timeコンポーネントのテスト', () => {
               expect(wrapper.html()).toMatchSnapshot()
             })
             it('-1を入力した場合、コンソールエラーが発生すること', () => {
-              const consoleSpy = jest
+              const consoleSpy = vi
                 .spyOn(console, 'warn')
                 .mockImplementation(() => ({}))
               shallowMount(Time, {
@@ -56,7 +57,7 @@ describe('_Cc_Timeコンポーネントのテスト', () => {
               expect(wrapper.html()).toMatchSnapshot()
             })
             it('7258086001を入力した場合コンソールエラーが発生すること', () => {
-              const consoleSpy = jest
+              const consoleSpy = vi
                 .spyOn(console, 'warn')
                 .mockImplementation(() => ({}))
               shallowMount(Time, {

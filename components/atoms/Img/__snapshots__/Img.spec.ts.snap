@@ -1,5 +1,3 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1
 
-exports[` 1`] = `"<img src="/sample.jpg">"`;
-
-exports[`UIコンポーネントのテスト Viewのテスト 回帰テスト スナップショットテスト 1`] = `"<img src="/sample.jpg">"`;
+exports[`UIコンポーネントのテスト > Viewのテスト > 回帰テスト > スナップショットテスト 1`] = `"<img src=\\"/sample.jpg\\">"`;
