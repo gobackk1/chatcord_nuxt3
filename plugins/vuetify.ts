@@ -1,8 +1,8 @@
-import { createVuetify } from 'vuetify'
+import { createVuetify, type VuetifyOptions } from 'vuetify'
 import 'vuetify/styles'
 import { defineNuxtPlugin } from '#app'
 
-export const vuetifyConfig = {
+export const vuetifyConfig: VuetifyOptions = {
   theme: {
     // defaultTheme: 'dark',
   },
