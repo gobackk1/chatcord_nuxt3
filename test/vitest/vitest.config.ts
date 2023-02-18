@@ -32,7 +32,7 @@ export default defineConfig(async () => {
       environment: 'jsdom',
       coverage: {
         provider: 'c8',
-        reporter: ['html'],
+        reporter: ['html', 'text'],
         reportsDirectory: '.coverage',
       },
       deps: {
