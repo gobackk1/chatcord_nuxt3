@@ -1,0 +1,14 @@
+{
+  "scenarios": [
+    {
+      "label": "Default",
+      "url": "http://localhost:6006/iframe.html?args=&id=molecules-avatar--default&viewMode=story",
+      "misMatchThreshold" : 0.1
+    },
+    {
+      "label": "WithPhotoURL",
+      "url": "http://localhost:6006/iframe.html?args=&id=molecules-avatar--with-photo-url&viewMode=story",
+      "misMatchThreshold" : 0.1
+    }
+  ]
+}

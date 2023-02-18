@@ -13,6 +13,7 @@ module.exports = {
   preset: 'ts-jest',
   testEnvironment: 'jsdom',
   testMatch: ['**/?(*.)+(spec|test).[jt]s?(x)'],
+  testPathIgnorePatterns: ['node_modules', 'test'],
   setupFilesAfterEnv: ['./test/jest.setup.js'],
   transform: {
     '.*\\.(vue)$': '@vue/vue3-jest',

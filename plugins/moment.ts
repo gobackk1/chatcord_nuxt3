@@ -1,4 +1,4 @@
-import { setup } from '~/utils/moment/setup'
+import { setup } from '../utils/moment/setup'
 
 export default defineNuxtPlugin(() => {
   setup()

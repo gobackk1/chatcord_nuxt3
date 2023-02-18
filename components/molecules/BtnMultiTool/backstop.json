@@ -1,0 +1,24 @@
+{
+  "scenarios": [
+    {
+      "label": "Default",
+      "url": "http://localhost:6006/iframe.html?id=molecules-btnmultitool--default&viewMode=story",
+      "misMatchThreshold" : 0.1
+    },
+    {
+      "label": "DefaultOnHover",
+      "url": "http://localhost:6006/iframe.html?id=molecules-btnmultitool--default&viewMode=story",
+      "misMatchThreshold" : 0.1,
+      "hoverSelector": ".v-btn",
+      "delay": 5000
+    },
+    {
+      "label": "DefaultOnRightClick",
+      "url": "http://localhost:6006/iframe.html?id=molecules-btnmultitool--default&viewMode=story",
+      "misMatchThreshold" : 0.1,
+      "xRightClickSelector": ".v-btn",
+      "delay": 5000,
+      "onReadyScript": "../../components/molecules/BtnMultiTool/DefaultOnRightClick.js"
+    }
+  ]
+}

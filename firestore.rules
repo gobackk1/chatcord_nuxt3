@@ -1,9 +1,50 @@
 rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+
     match /{document=**} {
-      allow read, write: if
-          request.time < timestamp.date(2023, 3, 11);
+      match /public_user_data/{userId} {
+        allow read: if isAuthenticated();
+        allow create: if false; // NOTE: onCreateUser triggerが作成する
+        allow update: if false; // NOTE: CloudFunctionsで更新する
+        allow delete: if false; // NOTE: onDelete triggerで削除する
+
+        match /friend_requests/{requestUserId} {
+          allow read: if request.auth.uid == userId;
+          allow update: if false; // NOTE: フレンドリクエストを更新する要求仕様は無い
+          allow create, delete: if false; // NOTE: CloudFunctionsで操作する
+        }
+        match /friends/{friendsId} {
+          allow read: if request.auth.uid == userId;
+          allow update: if false; // NOTE: フレンドリクエストを更新する要求仕様は無い
+          allow create, delete: if false; // NOTE: CloudFunctionsで操作する
+        }
+      }
+    }
+
+    match /direct_messages/{directMessageId} {
+      function isDmMember() {
+        return get(/databases/$(database)/documents/direct_messages/$(directMessageId)/direct_message_members/$(request.auth.uid))
+        .data.role.matches('member|admin');
+      }
+      allow read: if false; // NOTE: このドキュメントを読み取る要求仕様は無い
+      allow update: if false; // NOTE: このドキュメントを更新する要求仕様はない
+      allow create, delete: if false; // NOTE: CloudFunctionsで操作する
+
+      match /direct_message_messages/{messageId} {
+        allow read: if isAuthenticated() && isDmMember();
+        allow create: if isAuthenticated() && isDmMember();
+        allow delete, update: if false; // NOTE: メッセージを更新したり削除する要求仕様は無い
+      }
+
+      match /direct_message_members/{memberId} {
+        allow read: if isAuthenticated() && isDmMember();
+        allow create, update: if false;  // NOTE: CloudFunctionsで操作する
+        allow delete: if false;  // NOTE: 親ドキュメントのonDeleteトリガーで削除する
+      }
     }
   }
 }
