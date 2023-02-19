@@ -3,7 +3,7 @@
     <template #prepend>
       <mol-avatar
         size="large"
-        :photo-url="message.user.photoURL"
+        :photo-url="message.user.photoURL || ''"
         :display-name="message.user.displayName"
       />
     </template>
