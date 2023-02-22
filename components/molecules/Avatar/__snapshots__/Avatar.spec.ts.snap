@@ -1,0 +1,19 @@
+// Vitest Snapshot v1
+
+exports[`UIコンポーネントのテスト > ViewModelのテスト > ブラックボックステスト > 同値・境界値テスト > displayName > 有効同値 > displayNameに「test user」と入力した場合 > デフォルトのアイコンを表示すること 1`] = `
+"<div class=\\"v-avatar v-theme--light v-avatar--density-default v-avatar--size-default v-avatar--variant-flat\\"><i class=\\"mdi-account-circle mdi v-icon notranslate v-theme--light v-icon--size-x-large _icon_93c2a5\\" aria-hidden=\\"true\\"></i>
+  <!----><span class=\\"v-avatar__underlay\\"></span>
+</div>"
+`;
+
+exports[`UIコンポーネントのテスト > ViewModelのテスト > ブラックボックステスト > 同値・境界値テスト > photUrl, displayName > 有効同値 > photoUrlに「/path/to/photo.png」、displayNameに「test user」と入力した場合 >  1`] = `
+"<div class=\\"v-avatar v-theme--light v-avatar--density-default v-avatar--size-default v-avatar--variant-flat\\"><img src=\\"/path/to/photo.png\\" alt=\\"test userのアバター画像\\">
+  <!----><span class=\\"v-avatar__underlay\\"></span>
+</div>"
+`;
+
+exports[`UIコンポーネントのテスト > ViewModelのテスト > ブラックボックステスト > 同値・境界値テスト > photUrl, displayName > 有効同値 > photoUrlに「/path/to/photo.png」、displayNameに「test user」と入力した場合 > imgタグが描画されること 1`] = `
+"<div class=\\"v-avatar v-theme--light v-avatar--density-default v-avatar--size-default v-avatar--variant-flat\\"><img src=\\"/path/to/photo.png\\" alt=\\"test userのアバター画像\\">
+  <!----><span class=\\"v-avatar__underlay\\"></span>
+</div>"
+`;
