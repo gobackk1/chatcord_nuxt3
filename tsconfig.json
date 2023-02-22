@@ -28,7 +28,8 @@
     "noImplicitOverride": true,
     "allowUnreachableCode": false,
     "skipLibCheck": true,
-    "declaration": false
+    "declaration": false,
+    "isolatedModules": true,
     // "allowJs": true
   }
 }
