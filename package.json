@@ -11,7 +11,7 @@
     "lint": "npx eslint --ext .ts,.vue . && npx stylelint **/*.{css,scss,vue}",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "test": "npx vitest run --coverage --config ./test/vitest/vitest.config.ts",
+    "test": "npx vitest run --coverage --config ./test/vitest/vitest.config.mts",
     "backstop:init": "node ./test/backstop/init.js",
     "backstop:reference": "node ./test/backstop/reference.js",
     "backstop:test": "node ./test/backstop/test.js",
@@ -73,6 +73,5 @@
     "mdi": "^2.2.43",
     "moment": "^2.29.4",
     "vuetify": "^3.1.4"
-  },
-  "type": "module"
+  }
 }
