@@ -1,5 +1,5 @@
 <template>
-  <v-avatar v-bind="$attrs">
+  <v-avatar>
     <atom-img v-if="photoUrl" :src="photoUrl" :alt="altText" />
     <template v-else
       ><v-icon size="x-large" :class="$style.icon"
