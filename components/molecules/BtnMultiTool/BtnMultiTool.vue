@@ -1,5 +1,5 @@
 <template>
-  <v-menu v-model="showContextMenu" v-bind="menuAttrs">
+  <v-menu v-model="showContextMenu" v-bind="menuAttrs" eager>
     <template #activator="{ props: menuProps }">
       <v-tooltip v-bind="tooltipAttrs">
         <template #activator="{ props: tooltipProps }">
@@ -68,7 +68,7 @@ export default defineComponent({
     },
     to: {
       type: String,
-      default: () => '',
+      default: undefined,
     },
     active: {
       type: Boolean,

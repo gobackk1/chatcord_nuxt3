@@ -63,9 +63,10 @@ const Template = (args) => ({
 
 export const Default = Template.bind({})
 Default.args = {
-  menu: [{ label: 'menu1', click() {} }],
+  menu: ['menu1'],
   displayName: 'test user',
   photoUrl: '/images/avatar.png',
+  to: '/path/to/root',
 }
 Default.parameters = {
   docs: {
