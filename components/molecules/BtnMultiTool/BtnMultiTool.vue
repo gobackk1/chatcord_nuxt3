@@ -24,11 +24,11 @@
     </template>
     <v-list bg-color="#fff" nav min-width="250">
       <v-list-item
-        v-for="(item, index) in menu"
+        v-for="(label, index) in menu"
         :key="index"
-        @click="item.click"
+        @click="$emit('clickMenuItem', label, index)"
       >
-        <v-list-item-title>{{ item.label }}</v-list-item-title>
+        <v-list-item-title>{{ label }}</v-list-item-title>
       </v-list-item>
     </v-list>
   </v-menu>
@@ -43,7 +43,7 @@ export default defineComponent({
   components: { MolAvatar },
   props: {
     menu: {
-      type: Array as PropType<{ label: string; click: () => void }[]>,
+      type: Array as PropType<string[]>,
       required: true,
     },
     displayName: {
@@ -73,6 +73,11 @@ export default defineComponent({
     active: {
       type: Boolean,
       default: false,
+    },
+  },
+  emits: {
+    clickMenuItem(_label: string, _index: number) {
+      return true
     },
   },
   data() {

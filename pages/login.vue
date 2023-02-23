@@ -4,7 +4,6 @@
     <v-card-text>
       <v-form v-model="isFormValid" @submit.prevent="login">
         <mol-field-email v-model="email" class="mb-3" />
-        <mol-field-email v-model="email" class="mb-3" />
         <mol-field-password v-model="password" class="mb-3 text-left" />
         <v-alert
           v-if="errorMessage"

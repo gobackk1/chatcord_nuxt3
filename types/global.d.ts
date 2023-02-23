@@ -109,11 +109,6 @@ declare global {
         page: Component
       }
 
-      interface MultiToolMenu {
-        label: string
-        click: () => void | Promise<void>
-      }
-
       type RouteParams = Dictionary<string | undefined>
 
       interface PushSnackbarParams {

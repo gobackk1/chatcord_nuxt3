@@ -6,7 +6,7 @@
           <mol-btn-multi-tool
             :display-name="loginUser.displayName || ''"
             :photo-url="loginUser.photoURL || ''"
-            :menu="generateUserMenu()"
+            :menu="menu.user"
             :tooltip-attrs="{
               location: 'right',
               zIndex: 2021,
@@ -19,6 +19,7 @@
             }"
             to="/chat/me/friends"
             :active="$route.path.startsWith('/chat/me')"
+            @click-menu-item="clickMenuItem"
           />
         </v-row>
       </v-container>
@@ -170,6 +171,9 @@ export default defineComponent({
         isValid: false,
         rules: [(value: string) => !!value || 'ルーム名は必須です。'],
       },
+      menu: {
+        user: ['ユーザー設定', 'ログアウトする'],
+      },
       setting: {
         room: {
           dialog: false,
@@ -272,45 +276,22 @@ export default defineComponent({
     clickUserSetting() {
       this.setting.user.dialog = true
     },
-    generateRoomSettingMenu(room: CC.P.ChatRoom): CC.P.MultiToolMenu[] {
-      return [
-        {
-          label: 'ルーム設定',
-          click: () => {
-            this.clickMenuSetting(room)
-          },
-        },
-        {
-          label: '...機能追加予定',
-          click: () => {
-            console.log('...機能追加予定')
-          },
-        },
-        // TODO: 機能としてここに表示するのか検討
-        // {
-        //   label: 'ルームから退出する',
-        //   click: () => {
-        //     this.clickMenuExit(room.id)
-        //   }
-        // }
-      ]
-    },
-    generateUserMenu(): CC.P.MultiToolMenu[] {
-      return [
-        {
-          label: 'ユーザー設定',
-          click: () => {
-            this.clickUserSetting()
-          },
-        },
-        {
-          label: 'ログアウトする',
-          click: () => {
-            this.logout()
-          },
-        },
-      ]
-    },
+    // generateRoomSettingMenu(room: CC.P.ChatRoom): CC.P.MultiToolMenu[] {
+    //   return [
+    //     {
+    //       label: 'ルーム設定',
+    //       click: () => {
+    //         this.clickMenuSetting(room)
+    //       },
+    //     },
+    //     {
+    //       label: '...機能追加予定',
+    //       click: () => {
+    //         console.log('...機能追加予定')
+    //       },
+    //     },
+    //   ]
+    // },
     generatePath(room: CC.P.ChatRoom) {
       if (!room.channels[0]) {
         if (this.initialized) {
@@ -319,6 +300,16 @@ export default defineComponent({
         return
       }
       return `/chat/room/${room.id}/${room.channels[0].id}`
+    },
+    clickMenuItem(label: string) {
+      switch (label) {
+        case 'ユーザー設定':
+          this.clickUserSetting()
+          break
+        case 'ログアウトする':
+          this.logout()
+          break
+      }
     },
   },
 })
