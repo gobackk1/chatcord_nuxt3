@@ -18,7 +18,7 @@ export default defineComponent({
   components: { AtomImg },
   props: {
     photoUrl: {
-      type: String as PropType<string>,
+      type: String as PropType<string | undefined>,
       default: undefined,
     },
     displayName: {
