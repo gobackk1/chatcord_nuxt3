@@ -1,3 +1,7 @@
 // Vitest Snapshot v1
 
-exports[`UIコンポーネントのテスト > Viewのテスト > 回帰テスト > スナップショットテスト 1`] = `"<img src=\\"/sample.jpg\\">"`;
+exports[`UIコンポーネントのテスト > Viewのテスト > 回帰テスト > スナップショットテスト 1`] = `
+<img
+  src="/sample.jpg"
+/>
+`;

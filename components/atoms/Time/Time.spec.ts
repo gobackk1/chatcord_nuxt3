@@ -8,6 +8,9 @@ describe('_Cc_Timeコンポーネントのテスト', () => {
       return moment
     })
   })
+  afterEach(() => {
+    vi.restoreAllMocks()
+  })
   describe('ViewModelのテスト', () => {
     describe('ブラックボックステスト', () => {
       describe('同値・境界値テスト', () => {
@@ -20,7 +23,7 @@ describe('_Cc_Timeコンポーネントのテスト', () => {
                 },
               })
               expect(wrapper.html()).toContain('2023年02月01日(水) 00:00')
-              expect(wrapper.html()).toMatchSnapshot()
+              expect(wrapper.element).toMatchSnapshot()
             })
           })
           describe.skip('無効同値', () => {
@@ -34,7 +37,7 @@ describe('_Cc_Timeコンポーネントのテスト', () => {
                 },
               })
               expect(wrapper.html()).toContain('1970年01月01日(木) 09:00')
-              expect(wrapper.html()).toMatchSnapshot()
+              expect(wrapper.element).toMatchSnapshot()
             })
             it('-1を入力した場合、コンソールエラーが発生すること', () => {
               const consoleSpy = vi
@@ -54,7 +57,7 @@ describe('_Cc_Timeコンポーネントのテスト', () => {
                 },
               })
               expect(wrapper.html()).toContain('2200年01月01日(水) 00:00')
-              expect(wrapper.html()).toMatchSnapshot()
+              expect(wrapper.element).toMatchSnapshot()
             })
             it('7258086001を入力した場合コンソールエラーが発生すること', () => {
               const consoleSpy = vi
@@ -81,7 +84,7 @@ describe('_Cc_Timeコンポーネントのテスト', () => {
                 },
               })
               expect(wrapper.html()).toContain('02月01日(水) 00:00')
-              expect(wrapper.html()).toMatchSnapshot()
+              expect(wrapper.element).toMatchSnapshot()
             })
           })
           describe.skip('無効同値', () => {

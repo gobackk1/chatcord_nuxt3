@@ -25,7 +25,7 @@ describe('UIコンポーネントのテスト', () => {
                 expect(wrapper.find('i').classes()).toContain(
                   'mdi-account-circle'
                 )
-                expect(wrapper.html()).toMatchSnapshot()
+                expect(wrapper.element).toMatchSnapshot()
               })
             })
           })
@@ -49,7 +49,7 @@ describe('UIコンポーネントのテスト', () => {
                 expect(wrapper.find('img').attributes().src).toBe(
                   '/path/to/photo.png'
                 )
-                expect(wrapper.html()).toMatchSnapshot()
+                expect(wrapper.element).toMatchSnapshot()
               })
             })
           })

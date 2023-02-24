@@ -10,7 +10,7 @@ describe('UIコンポーネントのテスト', () => {
             src: '/sample.jpg',
           },
         })
-        expect(wrapper.html()).toMatchSnapshot()
+        expect(wrapper.element).toMatchSnapshot()
       })
     })
   })
