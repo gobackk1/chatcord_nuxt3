@@ -7,18 +7,18 @@
             :display-name="loginUser.displayName || ''"
             :photo-url="loginUser.photoURL || ''"
             :menu="menu.user"
+            tooltip-text="ダイレクトメッセージ"
+            to="/chat/me/friends"
+            :active="$route.path.startsWith('/chat/me')"
             :tooltip-attrs="{
               location: 'right',
               zIndex: 2021,
             }"
-            tooltip-text="ダイレクトメッセージ"
             :menu-attrs="{
               location: 'right top',
               zIndex: 2022,
               offset: 8,
             }"
-            to="/chat/me/friends"
-            :active="$route.path.startsWith('/chat/me')"
             @click-menu-item="clickMenuItem"
           />
         </v-row>
