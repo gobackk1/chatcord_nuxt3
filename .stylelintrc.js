@@ -5,7 +5,9 @@
 module.exports = {
   extends: ['stylelint-config-recommended-vue', 'stylelint-config-prettier'],
   customSyntax: 'postcss-scss',
-  rules: {},
+  // rules: {
+  //   'unit-allowed-list': ['em'],
+  // },
   overrides: [
     {
       files: ['**/*.vue'],
