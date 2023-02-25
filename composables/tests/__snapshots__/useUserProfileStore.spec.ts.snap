@@ -1,0 +1,75 @@
+// Vitest Snapshot v1
+
+exports[`useUserProfileStoreのテスト > Actions > initializeStore > storeデータを初期化すること 1`] = `
+{
+  "friendRequests": [],
+  "friends": [],
+  "unsubscribeFriendRequests": null,
+  "unsubscribeFriends": null,
+  "userData": null,
+}
+`;
+
+exports[`useUserProfileStoreのテスト > Actions > setUserData > nullを入力した場合、state.userDataがnullになること 1`] = `
+{
+  "friendRequests": [],
+  "friends": [],
+  "unsubscribeFriendRequests": null,
+  "unsubscribeFriends": null,
+  "userData": null,
+}
+`;
+
+exports[`useUserProfileStoreのテスト > Actions > setUserData > ユーザーデータを入力した場合、state.userDataが入力値になること 1`] = `
+{
+  "friendRequests": [],
+  "friends": [],
+  "unsubscribeFriendRequests": null,
+  "unsubscribeFriends": null,
+  "userData": {
+    "displayName": "test user",
+    "photoURL": "/path/to/image.png",
+    "uid": "test",
+  },
+}
+`;
+
+exports[`useUserProfileStoreのテスト > Actions > unsubscribeFriendRequests > 購読解除用のメソッドを実行すること 1`] = `
+{
+  "friendRequests": [],
+  "friends": [],
+  "unsubscribeFriendRequests": [MockFunction spy] {
+    "calls": [
+      [],
+    ],
+    "results": [
+      {
+        "type": "return",
+        "value": undefined,
+      },
+    ],
+  },
+  "unsubscribeFriends": [MockFunction spy],
+  "userData": null,
+}
+`;
+
+exports[`useUserProfileStoreのテスト > Actions > unsubscribeFriends > 購読解除用のメソッドを実行すること 1`] = `
+{
+  "friendRequests": [],
+  "friends": [],
+  "unsubscribeFriendRequests": null,
+  "unsubscribeFriends": [MockFunction spy] {
+    "calls": [
+      [],
+    ],
+    "results": [
+      {
+        "type": "return",
+        "value": undefined,
+      },
+    ],
+  },
+  "userData": null,
+}
+`;

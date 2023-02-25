@@ -1,7 +1,7 @@
 import { reactive } from 'vue'
 import type firebase from 'firebase'
-// import * as firestore from '@/plugins/firebase/firestore'
-// import * as functions from '@/plugins/firebase/functions'
+import admin from 'firebase-admin'
+import useFirebase from './firebase/useFirebase'
 
 export interface UserProfileStore {
   state: UserProfileState
@@ -10,7 +10,7 @@ export interface UserProfileStore {
 }
 
 export interface UserProfileState {
-  userData: firebase.User | null
+  userData: CC.User | null
   friends: CC.P.Friend[]
   unsubscribeFriends: null | firebase.Unsubscribe
   friendRequests: CC.P.FriendRequest[]
@@ -22,7 +22,9 @@ export interface UserProfileGetters {
 }
 
 export interface UserProfileActions {
-  setUserData: (user: firebase.User | null) => void
+  setUserData: (
+    user: admin.auth.UserRecord | firebase.User | CC.User | null
+  ) => void
   fetchFriends: (uid: string) => Promise<void>
   unsubscribeFriends: () => void
   fetchFriendRequests: (uid: string) => Promise<void>
@@ -61,7 +63,15 @@ const store: UserProfileStore = reactive<UserProfileStore>({
       store.state.unsubscribeFriendRequests = null
     },
     setUserData(user) {
-      store.state.userData = user
+      if (user) {
+        store.state.userData = {
+          uid: user.uid,
+          displayName: user.displayName,
+          photoURL: user.photoURL,
+        }
+      } else {
+        store.state.userData = null
+      }
     },
     async fetchFriends(uid) {
       store.state.unsubscribeFriends = await firestore.fetchFriends({
