@@ -1,5 +1,4 @@
 export { getCurrentUser } from './getCurrentUser'
-export { getToken } from './getToken'
 export { loginWithEmailAndPassword } from './loginWithEmailAndPassword'
 export { loginWithGoogle } from './loginWithGoogle'
 export { logout } from './logout'

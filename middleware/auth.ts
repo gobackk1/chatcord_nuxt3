@@ -1,12 +1,20 @@
 export default defineNuxtRouteMiddleware(async (to, from) => {
   const auth = useAuth()
-  const userProfile = useUserProfileStore()
-  // TODO: ユーザ情報の取得時間を計測し、必要ならキャッシュを導入する
-  const user = await auth.getCurrentUser()
-  await user?.reload()
-  userProfile.actions.setUserData(user)
+  let user
 
-  if (user === null) {
+  try {
+    const userProfile = useUserProfileStore()
+    // TODO: ユーザ情報の取得時間を計測し、必要ならキャッシュを導入する
+    user = await auth.getCurrentUser()
+    await user?.reload()
+    userProfile.actions.setUserData(user)
+  } catch (error) {
+    // NOTE: firebase関連のエラーはログイン画面に返す
+    // TODO: UI上で何かフィードバックを返す。
+    return await navigateTo({ name: 'login' })
+  }
+
+  if (user === null || user === undefined) {
     return await navigateTo({ name: 'login' })
   } else if (user.displayName === null && to.name !== 'preparation') {
     // Firebaseでは、メール認証でユーザーを作成するとき、作成時に設定できない情報がある。
