@@ -27,6 +27,9 @@
 </template>
 
 <script lang="ts">
+import { defineComponent } from 'vue'
+import { TEXT } from '@/utils/config/config'
+
 definePageMeta({
   layout: 'only-one-form',
 })
@@ -50,24 +53,28 @@ export default defineComponent({
   methods: {
     async login() {
       this.errorMessage = ''
-      const errorMessage = await this.auth.loginWithEmailAndPassword(
-        this.email,
-        this.password
-      )
+      try {
+        const errorMessage = await this.auth.loginWithEmailAndPassword(
+          this.email,
+          this.password
+        )
 
-      if (errorMessage) {
-        this.errorMessage = errorMessage
-      } else {
-        /**
-         * NOTE:
-         * router.pushの後にナビゲーションガードを挟むと、期待している遷移でもエラーが発生する
-         * 他に良い方法を思いつかなかったので、空実装の関数でエラー潰しをする
-         * https://stackoverflow.com/questions/62223195
-         */
-        //
-        // FIXME: Error: Navigation cancelled from "/login" to "/chat/me/friends" with a new navigation.
-        // this.$router.push({ name: 'friends' }).catch(() => ({}))
-        navigateTo('/chat/me/friends')
+        if (errorMessage) {
+          this.errorMessage = errorMessage
+        } else {
+          /**
+           * NOTE:
+           * router.pushの後にナビゲーションガードを挟むと、期待している遷移でもエラーが発生する
+           * 他に良い方法を思いつかなかったので、空実装の関数でエラー潰しをする
+           * https://stackoverflow.com/questions/62223195
+           */
+          //
+          // FIXME: Error: Navigation cancelled from "/login" to "/chat/me/friends" with a new navigation.
+          // this.$router.push({ name: 'friends' }).catch(() => ({}))
+          navigateTo('/chat/me/friends')
+        }
+      } catch (error) {
+        this.errorMessage = TEXT.ERROR.EXCEPTION
       }
     },
     async loginWithGoogle() {

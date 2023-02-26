@@ -1,6 +1,11 @@
 import firebase from 'firebase'
 import { isFirebaseError } from '../utils'
 
+/**
+ * - ログインに成功した場合は何も返さない
+ * - ログインに失敗した場合は、エラーコードに対応したエラーメッセージを返す
+ * - ログインに失敗した場合で、対応するエラーコードがない場合、エラーオブジェクトを投げる
+ */
 export const loginWithEmailAndPassword = async (
   email: string,
   password: string
