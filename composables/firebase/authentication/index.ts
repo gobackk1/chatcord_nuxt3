@@ -1,3 +1,4 @@
+/* c8 ignore next 6 */
 export { getCurrentUser } from './getCurrentUser'
 export { loginWithEmailAndPassword } from './loginWithEmailAndPassword'
 export { loginWithGoogle } from './loginWithGoogle'
