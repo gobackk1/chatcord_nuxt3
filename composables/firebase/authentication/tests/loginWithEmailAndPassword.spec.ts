@@ -26,7 +26,7 @@ describe('loginWithEmailAndPassword', () => {
   })
   describe('ログインに失敗した場合', () => {
     describe('firebaseのエラーの場合', () => {
-      it('IDまたはパスワードが正しくない場合、「IDかパスワードが間違っています。」を返すこと', async () => {
+      it('メールアドレスまたはパスワードが正しくない場合、「IDかパスワードが間違っています。」を返すこと', async () => {
         const spy = vi.fn().mockImplementation(() => {
           const error = new Error() as FirebaseError
           error.code = 'auth/wrong-password'
@@ -46,7 +46,7 @@ describe('loginWithEmailAndPassword', () => {
         expect(spy).toBeCalledTimes(1)
         expect(spy).toBeCalledWith('test_user@example.com', 'password')
       })
-      it('入力したIDとパスワードでユーザーが見つからない場合、「ユーザーが見つかりませんでした。」を返すこと', async () => {
+      it('入力したメールアドレスとパスワードでユーザーが見つからない場合、「ユーザーが見つかりませんでした。」を返すこと', async () => {
         const spy = vi.fn().mockImplementation(() => {
           const error = new Error() as FirebaseError
           error.code = 'auth/user-not-found'

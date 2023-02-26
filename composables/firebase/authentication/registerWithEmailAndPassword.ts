@@ -11,7 +11,8 @@ export const registerWithEmailAndPassword = async (
      * emulator に登録したユーザの emailVerified を true にする方法
      * https://firebase.google.com/docs/emulator-suite/connect_auth#emulated_email_email_link_and_anonymous_authentication
      */
-    await firebase.auth().currentUser!.sendEmailVerification()
+    // TODO: メール確認実装
+    // await firebase.auth().currentUser!.sendEmailVerification()
     return
   } catch (error) {
     if (error instanceof Error) {
@@ -20,11 +21,14 @@ export const registerWithEmailAndPassword = async (
           return 'このメールアドレスは既に登録されています。'
         } else if (error.code === 'auth/invalid-email') {
           return '無効なメールアドレスです。'
+        } else {
+          throw error
         }
+      } else {
         throw error
       }
+    } else {
       throw error
     }
-    throw error
   }
 }
